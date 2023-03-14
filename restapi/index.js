@@ -5,11 +5,7 @@ const port = 3003;
 
 var cors = require("cors");
 
-app.use(
-  cors({
-    origin: "*",
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 
@@ -20,6 +16,46 @@ app.listen(port, function () {
 app.get("/ressources", async (req, res) => {
   const connected = await connection();
   const [results, _] = await connected.execute(`SELECT * FROM resources`);
+  res.status(200).json({ results });
+});
+
+app.get("/ressources/html", async (req, res) => {
+  const connected = await connection();
+  const [results, _] = await connected.execute(
+    `SELECT * FROM resources WHERE html = true`
+  );
+  res.status(200).json({ results });
+});
+
+app.get("/ressources/css", async (req, res) => {
+  const connected = await connection();
+  const [results, _] = await connected.execute(
+    `SELECT * FROM resources WHERE css = true`
+  );
+  res.status(200).json({ results });
+});
+
+app.get("/ressources/js", async (req, res) => {
+  const connected = await connection();
+  const [results, _] = await connected.execute(
+    `SELECT * FROM resources WHERE js = true`
+  );
+  res.status(200).json({ results });
+});
+
+app.get("/ressources/german", async (req, res) => {
+  const connected = await connection();
+  const [results, _] = await connected.execute(
+    `SELECT * FROM resources WHERE german = true`
+  );
+  res.status(200).json({ results });
+});
+
+app.get("/ressources/english", async (req, res) => {
+  const connected = await connection();
+  const [results, _] = await connected.execute(
+    `SELECT * FROM resources WHERE german = english`
+  );
   res.status(200).json({ results });
 });
 
