@@ -70,12 +70,13 @@ app.get("/ressources/:id", async (req, res) => {
 
 app.post("/ressources", async (req, res) => {
   console.log(req.body);
-  const { title, subtitle, description, url } = req.body;
+  const { title, subtitle, description, url, german, english, html, css, js } =
+    req.body;
 
   const connected = await connection();
   const [results, _] = await connected.execute(
-    `INSERT INTO resources (title, subtitle, description, url) VALUES (?,?,?,?)`,
-    [title, subtitle, description, url]
+    `INSERT INTO resources (title, subtitle, description, url, german, english, html, css, js) VALUES (?,?,?,?,?,?,?,?,?)`,
+    [title, subtitle, description, url, german, english, html, css, js]
   );
 
   res.status(200).json({ results });
