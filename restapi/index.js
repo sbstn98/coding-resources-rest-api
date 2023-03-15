@@ -54,7 +54,7 @@ app.get("/ressources/german", async (req, res) => {
 app.get("/ressources/english", async (req, res) => {
   const connected = await connection();
   const [results, _] = await connected.execute(
-    `SELECT * FROM resources WHERE german = english`
+    `SELECT * FROM resources WHERE english = true`
   );
   res.status(200).json({ results });
 });
