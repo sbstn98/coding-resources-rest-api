@@ -38,7 +38,7 @@ app.get("/ressources/css", async (req, res) => {
 app.get("/ressources/js", async (req, res) => {
   const connected = await connection();
   const [results, _] = await connected.execute(
-    `SELECT * FROM resources WHERE js = true`
+    `SELECT * FROM resources WHERE jsc = true`
   );
   res.status(200).json({ results });
 });
