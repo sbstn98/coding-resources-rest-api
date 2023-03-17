@@ -81,3 +81,16 @@ app.post("/ressources", async (req, res) => {
 
   res.status(200).json({ results });
 });
+
+app.put("/ressources", async (req, res) => {
+  console.log(req.body);
+  const { id, rating } = req.body;
+
+  const connected = await connection();
+  const [results, _] = await connected.execute(
+    `UPDATE resources SET rating = ? WHERE id = ? `,
+    [rating, id]
+  );
+
+  res.status(200).json({ results });
+});
