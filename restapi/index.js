@@ -59,6 +59,14 @@ app.get("/ressources/english", async (req, res) => {
   res.status(200).json({ results });
 });
 
+app.get("/ressources/rates", async (req, res) => {
+  const connected = await connection();
+  const [results, _] = await connected.execute(
+    `SELECT * FROM resources ORDER BY rating DESC`
+  );
+  res.status(200).json({ results });
+});
+
 app.get("/ressources/:id", async (req, res) => {
   const connected = await connection();
   const [results, _] = await connected.execute(
