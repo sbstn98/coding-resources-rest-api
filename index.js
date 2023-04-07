@@ -9,10 +9,6 @@ app.use(cors());
 
 app.use(express.json());
 
-app.listen(port, function () {
-  console.log(`Listening on ${port}...`);
-});
-
 app.get("/ressources", async (req, res) => {
   const connected = await connection();
   const [results, _] = await connected.execute(`SELECT * FROM resources`);
@@ -100,4 +96,8 @@ app.put("/ressources", async (req, res) => {
   );
 
   res.status(200).json({ results });
+});
+
+app.listen(port, function () {
+  console.log(`Listening on ${port}...`);
 });
