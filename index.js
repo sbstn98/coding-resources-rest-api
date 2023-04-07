@@ -1,7 +1,7 @@
 const express = require("express");
 const { connection } = require("./db.config.js");
 const app = express();
-const port = 3003;
+const port = 3004;
 
 var cors = require("cors");
 
@@ -86,7 +86,6 @@ app.post("/ressources", async (req, res) => {
     `INSERT INTO resources (title, subtitle, description, url, german, english, html, css, jsc ) VALUES (?,?,?,?,?,?,?,?,?)`,
     [title, subtitle, description, url, german, english, html, css, jsc]
   );
-
   res.status(200).json({ results });
 });
 
