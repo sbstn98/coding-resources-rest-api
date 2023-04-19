@@ -23,3 +23,5 @@ Technic used:
 - Node.js
 - Express.js
 - MySQL Database
+
+Frontend: https://github.com/sbstn98/coding-resources-vue-app
