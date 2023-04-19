@@ -6,7 +6,13 @@ What I have learned:
 
 - How do APIs work 
 - How to create a MySQL Database to store data
+	- MySQL Statements
+	- Creating a table
+	- Inserting data
+	- Updating and deleting data
+	- Reading data
 	- Using MySQL primary and foreign Keys
+
 - How to configure an node.js Server with Express.js  
 - How to interact with a database using promises
 - Writing MySQL Statements to retrieve data from a database
