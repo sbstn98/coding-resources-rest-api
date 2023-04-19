@@ -1,6 +1,6 @@
 # Coding Resources - Final Project for the Hamburg Coding School.
 
-A REST API to provide the Data for my VUE.js Application.
+A REST API to provide the Data for my Coding Resources VUE.js Application.
 
 What I have learned:
 
