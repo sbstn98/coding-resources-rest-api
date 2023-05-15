@@ -8,6 +8,7 @@ var cors = require("cors");
 
 app.use(
   cors({
+    exposedHeaders: ["Access-Control-Allow-Origin"],
     origin: "https://coding-resources-vue-app.onrender.com/",
   })
 );
