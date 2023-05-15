@@ -74,10 +74,7 @@ app.get("/ressources/:id", async (req, res) => {
 });
 
 app.post("/ressources", async (req, res) => {
-  res.set(
-    "Access-Control-Allow-Origin",
-    "https://coding-resources-vue-app.onrender.com"
-  );
+  res.set("Access-Control-Allow-Origin", "*");
   console.log(req.body);
   const { title, subtitle, description, url, german, english, html, css, jsc } =
     req.body;
