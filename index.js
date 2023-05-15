@@ -6,12 +6,7 @@ const port = process.env.PORT || 3000;
 
 var cors = require("cors");
 
-app.use(
-  cors({
-    exposedHeaders: ["Access-Control-Allow-Origin"],
-    origin: "https://coding-resources-vue-app.onrender.com/",
-  })
-);
+app.use(cors());
 
 app.use(express.json());
 
