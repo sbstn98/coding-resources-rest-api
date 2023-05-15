@@ -10,6 +10,15 @@ app.use(cors());
 
 app.use(express.json());
 
+app.use(function (req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+});
+
 app.get("/ressources", async (req, res) => {
   const connected = await connection();
   const [results, _] = await connected.execute(`SELECT * FROM resources`);
@@ -74,7 +83,6 @@ app.get("/ressources/:id", async (req, res) => {
 });
 
 app.post("/ressources", async (req, res) => {
-  res.set("Access-Control-Allow-Origin", "*");
   console.log(req.body);
   const { title, subtitle, description, url, german, english, html, css, jsc } =
     req.body;
