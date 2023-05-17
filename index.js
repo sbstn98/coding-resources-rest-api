@@ -86,7 +86,7 @@ app.post("/ressources", async (req, res) => {
     res.status(200).json({ results });
   } catch (error) {
     console.log(error);
-    res.json(error);
+    res.status(500).end();
   }
 });
 
