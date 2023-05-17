@@ -75,16 +75,19 @@ app.get("/ressources/:id", async (req, res) => {
 
 app.post("/ressources", async (req, res) => {
   console.log(req.body);
-  res.json("Hello");
-  /* const { title, subtitle, description, url, german, english, html, css, jsc } =
+  const { title, subtitle, description, url, german, english, html, css, jsc } =
     req.body;
-
-  const connected = await connection();
-  const [results, _] = await connected.execute(
-    `INSERT INTO resources (title, subtitle, description, url, german, english, html, css, jsc ) VALUES (?,?,?,?,?,?,?,?,?)`,
-    [title, subtitle, description, url, german, english, html, css, jsc]
-  );
-  res.status(200).json({ results }); */
+  try {
+    const connected = await connection();
+    const [results, _] = await connected.execute(
+      `INSERT INTO resources (title, subtitle, description, url, german, english, html, css, jsc ) VALUES (?,?,?,?,?,?,?,?,?)`,
+      [title, subtitle, description, url, german, english, html, css, jsc]
+    );
+    res.status(200).json({ results });
+  } catch (error) {
+    console.log(error);
+    res.json(error);
+  }
 });
 
 app.put("/ressources", async (req, res) => {
